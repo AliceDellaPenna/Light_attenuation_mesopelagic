@@ -20,11 +20,11 @@
 
 
 
-% addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/Inpaint_nans')
-% addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/boundedline')
-% addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/catuneven')
-% addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/singlepatch')
-% addpath('C:\Users\adel386\OneDrive - The University of Auckland\Desktop/Code/cmocean')
+addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/Inpaint_nans')
+addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/boundedline')
+addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/catuneven')
+addpath('C:/Users/adel386/OneDrive - The University of Auckland/Desktop/Code/boundedlinepackage/singlepatch')
+addpath('C:\Users\adel386\OneDrive - The University of Auckland\Desktop/Code/cmocean')
 
 % This needs to be edited to include the boundedlinepackage and the
 % subfolders github.com/kakearney/boundedline-pkg 
@@ -284,10 +284,7 @@ plot(nanmean(peaks_binned(:,afternoon),2), -zbins(1:end-1), 'k','LineWidth',2)
 xlabel('density of bbp700 spikes (m^{-1})')
 ylabel('depth (m)')
 
-legend('Morning','', ...
-       'Night','', ...
-       'Afternoon','', ...
-       'Location','best')
+
 
 %% ------------------------------------------------------------------------
 % Figure 8
@@ -314,7 +311,7 @@ boundedline(nanmean(diff(density_binned(:,afternoon))./5,2), -zbins(1:end-2), na
 
 plot(nanmean(diff(density_binned(:,afternoon))./5,2), -zbins(1:end-2), 'k','LineWidth',2)
 
-xlabel('vertical density gradient')
+xlabel('vertical density gradient (kg m^{-4})')
 ylabel('depth (m)')
 
 %% ------------------------------------------------------------------------
@@ -339,7 +336,7 @@ plot(nanmean(bbp_binned(:,noonish),2), -zbins(1:end-1),'r','LineWidth',2)
 boundedline(nanmean(bbp_binned(:,afternoon),2), -zbins(1:end-1), nanstd(bbp_binned(:,afternoon),[],2)./sqrt(length(afternoon)), 'orientation','horiz','k','alpha')
 
 plot(nanmean(bbp_binned(:,afternoon),2), -zbins(1:end-1),'k','LineWidth',2)
-
+xlim([0.5 2]*10^(-4))
 xlabel('bbp700 (m^{-1})')
 ylabel('depth (m)')
 
@@ -365,5 +362,5 @@ boundedline(nanmean(oxygen_binned(:,afternoon),2),-zbins(1:end-1), nanstd(oxygen
 
 plot(nanmean(oxygen_binned(:,afternoon),2), -zbins(1:end-1), 'k','LineWidth',2)
 
-xlabel('oxygen concentration')
+xlabel('oxygen concentration (\mu mol kg^{-1})')
 ylabel('depth (m)')
